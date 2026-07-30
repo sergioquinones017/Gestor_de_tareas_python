@@ -1,6 +1,6 @@
 # Gestor de tareas en Python
 
-Mi primer proyecto desarrollado en Python. Este programa permite gestionar tareas desde la consola mediante un menú interactivo.
+Mi primer proyecto desarrollado en Python. Este programa permite gestionar tareas desde la consola mediante un menú interactivo. 
 
 ## 🚀 Funcionalidades
 
