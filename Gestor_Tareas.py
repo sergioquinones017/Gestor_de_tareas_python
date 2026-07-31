@@ -1,5 +1,20 @@
+"""
+=========================================
+Proyecto: Gestor de Tareas
+
+Autor: Sergio Quiñones
+
+Descripción:
+Primer proyecto desarrollado en Python.
+Permite agregar, visualizar, completar,
+eliminar y guardar tareas.
+
+Versión: 1.0
+=========================================
+"""
 tareas = []
 
+# ===== MENÚ PRINCIPAL =====
 while True:
     print("\n===== GESTOR DE TAREAS =====")
     print("1. Ver tareas")
@@ -9,6 +24,7 @@ while True:
     print("5. Salir")
 
     opcion = input("Seleccione una opción: ")
+    # ===== VER TAREAS =====
     if opcion == "1":
         print("\n ===== MIS TAREAS =====")
         if len(tareas) == 0:
@@ -16,10 +32,14 @@ while True:
         else:
             for tarea in tareas:
                 print(tarea)
+
+    # ===== AGREGAR TAREA =====
     elif opcion == "2":
         tarea = input("Escriba la nueva tarea: ")
         tareas.append(tarea)
         print("Tarea agregada con exito.")
+        
+    # ===== MARCAR TAREA =====
     elif opcion == "3":
         print("\n===== MARCAR TAREA COMO COMPLETADA =====")
 
@@ -33,7 +53,8 @@ while True:
             completada = int(numero)
             tareas[completada - 1] = "COMPLETADA " + tareas[completada - 1]
             print("Tarea marcada exitosamente. ")
-        
+ 
+    # ===== ELIMINAR TAREA =====   
     elif opcion =="4":
         print("Que tarea deseas eliminar")
         for numero, tarea in enumerate(tareas):
@@ -42,6 +63,7 @@ while True:
         numeros = int(numero)
         tareas.pop(numeros)
         print("Tarea eliminada con éxito")
+    # ===== SALIR Y GUARDAR =====
     elif opcion == "5":
         guardar = input("¿Desea guardar las tareas antes de salir? (s/n): ")
 
