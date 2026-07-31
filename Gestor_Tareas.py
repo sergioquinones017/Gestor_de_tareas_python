@@ -39,7 +39,7 @@ while True:
         tareas.append(tarea)
         print("Tarea agregada con exito.")
         
-    # ===== MARCAR TAREA =====
+         # ===== MARCAR TAREA =====
     elif opcion == "3":
         print("\n===== MARCAR TAREA COMO COMPLETADA =====")
 
@@ -49,20 +49,51 @@ while True:
         else:
             for numero, tarea in enumerate(tareas, 1):
                 print(numero, tarea)
-            numero = input("Ingrese la tarea completada ")
+
+            numero = input("Ingrese el número de la tarea completada: ")
+
+            if not numero.isdigit():
+                print("❌ Debe ingresar un número.")
+                continue
+
             completada = int(numero)
-            tareas[completada - 1] = "COMPLETADA " + tareas[completada - 1]
-            print("Tarea marcada exitosamente. ")
- 
-    # ===== ELIMINAR TAREA =====   
-    elif opcion =="4":
-        print("Que tarea deseas eliminar")
-        for numero, tarea in enumerate(tareas):
+
+            if completada < 1 or completada > len(tareas):
+                print("❌ Esa tarea no existe.")
+                continue
+
+            tareas[completada - 1] = "✅ COMPLETADA - " + tareas[completada - 1]
+
+            print("✅ Tarea marcada exitosamente.")
+
+    # ===== ELIMINAR TAREA =====
+    elif opcion == "4":
+
+        if len(tareas) == 0:
+            print("No hay tareas registradas.")
+            continue
+
+        print("\n===== ELIMINAR TAREA =====")
+
+        for numero, tarea in enumerate(tareas, 1):
             print(numero, tarea)
-        numero = input("Ingrese la tarea que desea eliminar ")
-        numeros = int(numero)
-        tareas.pop(numeros)
-        print("Tarea eliminada con éxito")
+
+        numero = input("Ingrese el número de la tarea que desea eliminar: ")
+
+        if not numero.isdigit():
+            print("❌ Debe ingresar un número.")
+            continue
+
+        numero = int(numero)
+
+        if numero < 1 or numero > len(tareas):
+            print("❌ Esa tarea no existe.")
+            continue
+
+        tarea_eliminada = tareas.pop(numero - 1)
+
+        print(f"✅ '{tarea_eliminada}' eliminada correctamente.")   
+
     # ===== SALIR Y GUARDAR =====
     elif opcion == "5":
         guardar = input("¿Desea guardar las tareas antes de salir? (s/n): ")
