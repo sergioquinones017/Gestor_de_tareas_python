@@ -77,10 +77,15 @@ while True:
                 print("❌ Esa tarea no existe.")
                 continue
 
-            tareas[completada - 1] = "✅ COMPLETADA - " + tareas[completada - 1]
+        # Obtener la tarea seleccionada
+        tarea = tareas[completada - 1]
 
-            print("✅ Tarea marcada exitosamente.")
-
+        # Verificar si ya está completada
+        if tarea.startswith("[x]"):
+            print("⚠️ Esa tarea ya está completada.")
+        else:
+            tareas[completada - 1] = tarea.replace("[ ]", "[x]", 1)
+            print("✅ Tarea marcada como completada.")
     # ===== ELIMINAR TAREA =====
     elif opcion == "4":
 
