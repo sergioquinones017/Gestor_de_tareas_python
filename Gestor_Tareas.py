@@ -13,12 +13,17 @@ Versión: 1.0
 =========================================
 """
 def mostrar_menu():
-    print("\n===== GESTOR DE TAREAS =====")
-    print("1. Ver tareas")
-    print("2. Agregar tarea")
-    print("3. Marcar tarea")
-    print("4. Eliminar tarea")
-    print("5. Salir")
+    print("\n" + "=" * 40)
+    print("      GESTOR DE TAREAS v1.0")
+    print("=" * 40)
+
+    print("1. 📋 Ver tareas")
+    print("2. ➕ Agregar tarea")
+    print("3. ✅ Marcar tarea")
+    print("4. 🗑️ Eliminar tarea")
+    print("5. 🚪 Salir")
+
+    print("=" * 40)
     
 def guardar_tareas():
     with open("tareas.txt", "w") as archivo:
@@ -44,12 +49,21 @@ while True:
     opcion = input("Seleccione una opción: ")
     # ===== VER TAREAS =====
     if opcion == "1":
-        print("\n ===== MIS TAREAS =====")
         if len(tareas) == 0:
+            print("\n" + "=" * 40)
+            print("           MIS TAREAS")
+            print("=" * 40)
             print("No hay tareas registradas.")
+            print("=" * 40)
         else:
-            for tarea in tareas:
-                print(tarea)
+            print("\n" + "=" * 40)
+            print("           MIS TAREAS")
+            print("=" * 40)
+
+            for numero, tarea in enumerate(tareas, 1):
+                print(f"{numero}. {tarea}")
+
+            print("=" * 40)
 
     # ===== AGREGAR TAREA =====
     elif opcion == "2":
@@ -62,39 +76,43 @@ while True:
             guardar_tareas()
             print(f"✅ '{nueva_tarea}' agregada correctamente.")
 
-    # ===== MARCAR TAREA =====
+        # ===== MARCAR TAREA =====
     elif opcion == "3":
-        print("\n===== MARCAR TAREA COMO COMPLETADA =====")
+        print("\n" + "=" * 40)
+        print("           MARCAR TAREA")
+        print("=" * 40)
 
         if len(tareas) == 0:
             print("No hay tareas registradas.")
+            print("=" * 40)
+            continue
 
-        else:
-            for numero, tarea in enumerate(tareas, 1):
-                print(numero, tarea)
+        for numero, tarea in enumerate(tareas, 1):
+            print(f"{numero}. {tarea}")
 
-            numero = input("Ingrese el número de la tarea completada: ")
+        print("=" * 40)
 
-            if not numero.isdigit():
-                print("❌ Debe ingresar un número.")
-                continue
+        numero = input("Ingrese el número de la tarea completada: ")
 
-            completada = int(numero)
+        if not numero.isdigit():
+            print("❌ Debe ingresar un número.")
+            continue
 
-            if completada < 1 or completada > len(tareas):
-                print("❌ Esa tarea no existe.")
-                continue
+        completada = int(numero)
 
-        # Obtener la tarea seleccionada
+        if completada < 1 or completada > len(tareas):
+            print("❌ Esa tarea no existe.")
+            continue
+
         tarea = tareas[completada - 1]
 
-        # Verificar si ya está completada
         if tarea.startswith("[x]"):
             print("⚠️ Esa tarea ya está completada.")
         else:
             tareas[completada - 1] = tarea.replace("[ ]", "[x]", 1)
             guardar_tareas()
             print("✅ Tarea marcada como completada.")
+            
     # ===== ELIMINAR TAREA =====
     elif opcion == "4":
 
@@ -102,10 +120,12 @@ while True:
             print("No hay tareas registradas.")
             continue
 
-        print("\n===== ELIMINAR TAREA =====")
+        print("\n" + "=" * 40)
+        print("          ELIMINAR TAREA")
+        print("=" * 40)
 
         for numero, tarea in enumerate(tareas, 1):
-            print(numero, tarea)
+            print(f"{numero}. {tarea}")
 
         numero = input("Ingrese el número de la tarea que desea eliminar: ")
 
@@ -126,7 +146,10 @@ while True:
 
     # ===== SALIR Y GUARDAR =====
     elif opcion == "5":
-        print("¡Hasta luego!")
+        print("\n" + "=" * 40)
+        print(" Gracias por usar Gestor de Tareas")
+        print("          Versión 1.0")
+        print("=" * 40)
         break
     else:
         print("Esta opción aún no esta disponible")
