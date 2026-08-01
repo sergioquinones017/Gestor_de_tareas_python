@@ -1,6 +1,8 @@
 # Gestor de tareas en Python
 
-Mi primer proyecto desarrollado en Python. Este programa permite gestionar tareas desde la consola mediante un menú interactivo. 
+> ⚡ Mi primer proyecto desarrollado en Python como parte de mi proceso de aprendizaje en programación y control de versiones con Git.
+
+Este programa permite gestionar tareas desde la consola mediante un menú interactivo.
 
 ## 🚀 Funcionalidades
 
@@ -8,7 +10,9 @@ Mi primer proyecto desarrollado en Python. Este programa permite gestionar tarea
 - ➕ Agregar tareas.
 - ✅ Marcar tareas como completadas.
 - 🗑️ Eliminar tareas.
-- 💾 Guardar tareas en un archivo `.txt`.
+- 💾 Guardado automático de tareas.
+- 📂 Carga automática al iniciar el programa.
+- ✔️ Validación de entradas del usuario.
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -38,17 +42,22 @@ python Gestor_Tareas.py
 
 ## 📚 Lo que aprendí
 
-Con este proyecto practiqué:
+Durante el desarrollo de este proyecto practiqué:
 
-- Variables
-- Listas
-- Bucles (`for` y `while`)
-- Condicionales (`if`, `elif` y `else`)
-- Manejo de archivos (`.txt`)
-- Git
-- GitHub
+- Variables.
+- Listas.
+- Bucles (`for` y `while`).
+- Condicionales (`if`, `elif` y `else`).
+- Funciones.
+- Manejo de archivos (`.txt`).
+- Validación de datos.
+- Control de versiones con Git.
+- Publicación de proyectos en GitHub.
 
-## 👨‍💻 Autor
+## 🚀 Mejoras futuras
 
-**Sergio Quiñones**  
-GitHub: https://github.com/sergioquinones017
+- Interfaz gráfica.
+- Prioridades para las tareas.
+- Uso de una base de datos SQLite.
+
+- Wallabit Shin
