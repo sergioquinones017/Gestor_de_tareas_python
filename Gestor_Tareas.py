@@ -12,16 +12,27 @@ eliminar y guardar tareas.
 Versión: 1.0
 =========================================
 """
-tareas = []
-
-# ===== MENÚ PRINCIPAL =====
-while True:
+def mostrar_menu():
     print("\n===== GESTOR DE TAREAS =====")
     print("1. Ver tareas")
-    print("2. Agregar tareas")
+    print("2. Agregar tarea")
     print("3. Marcar tarea")
     print("4. Eliminar tarea")
     print("5. Salir")
+    
+tareas = []
+
+try:
+    with open("tareas.txt", "r") as archivo:
+        for linea in archivo:
+            tareas.append(linea.strip())
+
+except FileNotFoundError:
+    pass
+
+# ===== MENÚ PRINCIPAL =====
+while True:
+    mostrar_menu()
 
     opcion = input("Seleccione una opción: ")
     # ===== VER TAREAS =====
