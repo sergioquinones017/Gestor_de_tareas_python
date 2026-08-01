@@ -20,6 +20,13 @@ def mostrar_menu():
     print("4. Eliminar tarea")
     print("5. Salir")
     
+def guardar_tareas():
+    with open("tareas.txt", "w") as archivo:
+        for tarea in tareas:
+            archivo.write(tarea + "\n")
+
+
+    
 tareas = []
 
 try:
@@ -52,6 +59,7 @@ while True:
             print("❌ La tarea no puede estar vacía.")
         else:
             tareas.append("[ ] " + nueva_tarea)
+            guardar_tareas()
             print(f"✅ '{nueva_tarea}' agregada correctamente.")
 
     # ===== MARCAR TAREA =====
@@ -85,6 +93,7 @@ while True:
             print("⚠️ Esa tarea ya está completada.")
         else:
             tareas[completada - 1] = tarea.replace("[ ]", "[x]", 1)
+            guardar_tareas()
             print("✅ Tarea marcada como completada.")
     # ===== ELIMINAR TAREA =====
     elif opcion == "4":
@@ -111,21 +120,12 @@ while True:
             continue
 
         tarea_eliminada = tareas.pop(numero - 1)
+        guardar_tareas()
 
         print(f"✅ '{tarea_eliminada}' eliminada correctamente.")   
 
     # ===== SALIR Y GUARDAR =====
     elif opcion == "5":
-        guardar = input("¿Desea guardar las tareas antes de salir? (s/n): ")
-
-        if guardar.lower() == "s":
-            archivo = open("tareas.txt", "w")
-            for tarea in tareas:
-                archivo.write(tarea + "\n")
-            archivo.close()
-
-        print("Tareas guardadas correctamente.")
-
         print("¡Hasta luego!")
         break
     else:
