@@ -46,11 +46,15 @@ while True:
 
     # ===== AGREGAR TAREA =====
     elif opcion == "2":
-        tarea = input("Escriba la nueva tarea: ")
-        tareas.append(tarea)
-        print("Tarea agregada con exito.")
-        
-         # ===== MARCAR TAREA =====
+        nueva_tarea = input("Ingrese la nueva tarea: ")
+
+        if nueva_tarea.strip() == "":
+            print("❌ La tarea no puede estar vacía.")
+        else:
+            tareas.append("[ ] " + nueva_tarea)
+            print(f"✅ '{nueva_tarea}' agregada correctamente.")
+
+    # ===== MARCAR TAREA =====
     elif opcion == "3":
         print("\n===== MARCAR TAREA COMO COMPLETADA =====")
 
